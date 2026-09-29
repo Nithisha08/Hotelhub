@@ -1,48 +1,42 @@
-import { Card, Image, Text, Button, Group } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 function HotelCard({ hotel, onEdit, onDelete }) {
   const navigate = useNavigate();
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder>
-      <Card.Section>
-        <Image
-  src={`http://localhost:5000${hotel.image}`}
-  height={180}
-  alt={hotel.title}
-/>
-      </Card.Section>
-      <Text fw={700} size="lg" mt="md">
-        {hotel.title}
-      </Text>
-      <Text fw={600} mt="xs">
-        ₹{hotel.price}
-      </Text>
-      <Text size="sm" c="dimmed" mt="xs">
-        {hotel.description}
-      </Text>
-      <Group
-  mt="md"
-  wrap="wrap"
->
-  <Button
-    onClick={() => navigate(`/hotel/${hotel.id}`)}
-  >
-    View Details
-  </Button>
-
-  <Button onClick={() => onEdit(hotel)}>
-    Edit
-  </Button>
-
-  <Button
-    color="red"
-    variant="outline"
-    onClick={() => onDelete(hotel.id)}
-  >
-    Delete
-  </Button>
-</Group>
-    </Card>
+    <div className="card hotel-card">
+      <img
+        className="hotel-card-image"
+        src={`http://localhost:5000${hotel.image}`}
+        alt={hotel.title}
+      />
+      <div className="hotel-card-body">
+        <h3 className="hotel-card-title">{hotel.title}</h3>
+        <p className="hotel-card-price">₹{hotel.price}</p>
+        <p className="hotel-card-desc">{hotel.description}</p>
+        <div className="hotel-card-actions">
+          <button
+            type="button"
+            className="btn btn-primary btn-sm"
+            onClick={() => navigate(`/hotel/${hotel.id}`)}
+          >
+            View Details
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline btn-sm"
+            onClick={() => onEdit(hotel)}
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger-outline btn-sm"
+            onClick={() => onDelete(hotel.id)}
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 export default HotelCard;
