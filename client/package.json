@@ -10,10 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mantine/core": "^9.6.2",
-    "@mantine/hooks": "^9.6.2",
-    "@mantine/notifications": "^9.6.2",
     "@reduxjs/toolkit": "^2.12.0",
+    "lucide-react": "^1.48.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-helmet-async": "^3.0.0",

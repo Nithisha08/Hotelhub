@@ -1,22 +1,20 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { MantineProvider } from "@mantine/core";
-import "@mantine/core/styles.css";
-import { Notifications } from "@mantine/notifications";
-import "@mantine/notifications/styles.css";
+import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { HelmetProvider } from "react-helmet-async";
+import { ToastProvider } from "./components/Toast";
+
 createRoot(document.getElementById("root")).render(
- <StrictMode>
-  <HelmetProvider>
-    <MantineProvider>
-      <Notifications />
+  <StrictMode>
+    <HelmetProvider>
       <Provider store={store}>
-        <App />
+        <ToastProvider>
+          <App />
+        </ToastProvider>
       </Provider>
-    </MantineProvider>
-  </HelmetProvider>
-</StrictMode>
+    </HelmetProvider>
+  </StrictMode>
 );
