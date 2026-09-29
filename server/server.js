@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const pool = require("./db/database");
 const hotelRoutes = require("./routes/hotelRoutes");
 const app = express();
@@ -32,7 +33,7 @@ app.get("/api/test-db", async (req, res) => {
   }
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
